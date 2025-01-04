@@ -17,10 +17,12 @@ model Poi {
   id          String   @id @default(uuid())
   title       String
   description String
+  latitude    Float
+  longitude   Float
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
-  routeId     String
-  Route       Route    @relation(fields: [routeId], references: [id])
+  routeId     String?
+  Route       Route?   @relation(fields: [routeId], references: [id])
 }
 
 model Route {
