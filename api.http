@@ -1,0 +1,63 @@
+GET http://localhost:3000/pois
+
+###
+# @name createPoi
+POST http://localhost:3000/pois
+Content-Type: application/json
+
+{
+  "title": "Poi 3",
+  "description": "Description of Poi 3",
+  "latitude": 1.0,
+  "longitude": 1.0
+}
+
+###
+@poiId = {{createPoi.response.body.id}}
+
+###
+GET http://localhost:3000/pois/{{poiId}}
+
+###
+PATCH http://localhost:3000/pois/{{poiId}}
+Content-Type: application/json
+
+{
+  "title": "Poi 3 Updated"
+}
+
+###
+DELETE http://localhost:3000/pois/{{poiId}}
+
+
+
+### ================= ROUTES =================
+
+GET http://localhost:3000/routes
+
+###
+# @name createRoute
+POST http://localhost:3000/routes
+Content-Type: application/json
+
+{
+  "title": "Route 3",
+  "description": "Description of Route 3"
+}
+
+###
+@routeId = {{createRoute.response.body.id}}
+
+###
+GET http://localhost:3000/routes/{{routeId}}
+
+###
+PATCH http://localhost:3000/routes/{{routeId}}
+Content-Type: application/json
+
+{
+  "title": "Route 3 Updated"
+}
+
+###
+DELETE http://localhost:3000/routes/{{routeId}}
